@@ -7,7 +7,8 @@ function embed(){
         video_id = video_id.substring(0, ampersandPosition);
     }
 
-    var redirect = "https://youtube.com/embed/" + video_id;
+    var redirect = "http://youtube.com/embed/" + video_id;
     window.open(redirect);
     window.close();
+
 }
