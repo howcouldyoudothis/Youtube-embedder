@@ -8,5 +8,6 @@ function embed(){
     }
 
     var redirect = "https://youtube.com/embed/" + video_id;
-    window.location.href = redirect;
+    window.open(redirect);
+    window.close();
 }
