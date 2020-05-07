@@ -8,13 +8,16 @@ function embed(){
     }
     else{
     var video_id = link.split('v=')[1];
-    var ampersandPosition = video_id.indexOf('&');
-    if(ampersandPosition != -1) {
-        video_id = video_id.substring(0, ampersandPosition);
+    try {
+        var ampersandPosition = video_id.indexOf('&');
+        if (ampersandPosition != -1) {
+            video_id = video_id.substring(0, ampersandPosition);
+        }
+    }
+    catch{
     }
 
     var redirect = "http://youtube.com/embed/" + video_id;
-    window.open(redirect);
-    window.close();
+    location.href = redirect;
     }
 }
