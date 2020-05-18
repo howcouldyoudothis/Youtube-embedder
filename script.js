@@ -1,3 +1,9 @@
+$("#link").keypress(function(event) { 
+            if (event.keyCode === 13) { 
+                $("#go").click(); 
+            } 
+        });
+
 function embed(){
     var link = String(window.document.forms[0].link.value);
     if (link == "corona"){
