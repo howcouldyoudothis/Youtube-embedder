@@ -1,4 +1,6 @@
 function embed(){
+    document.getElementById('btn-go').innerHTML = "Processing...";
+    document.getElementById('btn-go').disabled = true;
     var link = String(window.document.forms[0].link.value);
     if (link == "corona"){
         window.open("http://redirect.tinu.tech/corona");
@@ -20,6 +22,8 @@ function embed(){
             else{
                 window.alert("Please Enter a Valid Youtube URL!");
                 window.document.forms[0].link.value = "";
+                document.getElementById('btn-go').innerHTML = "Go";
+                document.getElementById('btn-go').disabled = false;
                 valid = false;
             }
         }
@@ -39,6 +43,8 @@ function embed(){
             if (window.document.forms[0].closeTab.checked) {
                 window.open(redirect);
                 window.document.forms[0].link.value = "";
+                document.getElementById('btn-go').innerHTML = "Go";
+                document.getElementById('btn-go').disabled = false;
             }
             else{
                 window.location.href = redirect;
