@@ -1,3 +1,9 @@
+$("#link").keypress(function(event) { 
+            if (event.keyCode === 13) { 
+                $("#go").click(); 
+            } 
+        });
+
 function embed(){
     document.getElementById('btn-go').innerHTML = "Processing...";
     document.getElementById('btn-go').disabled = true;
