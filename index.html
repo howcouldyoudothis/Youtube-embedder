@@ -31,14 +31,16 @@
         <h1 class = "heading">Youtube Embeder</h1><br>
 		
 		<!-- Actual Content (form for the the redirection) -->
-        <input type="text" class="form-control form-control-lg" id="link" name = "link" id = "link" placeholder="Youtube Link"><br>
+        <input type="text" class="form-control form-control-lg" id="link" name = "link" id = "link" onkeyup="checkEnter(event)" placeholder="Youtube Link"><br>
 
         <center><button class = 'btn btn-outline-light btn-lg' id = "btn-go" onclick="embed();">Go</button></center>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="closeTab" name = "closeTab" checked>
-            <label class="form-check-label" style = "color: #ffffff;" for="closeTab">
-                Open in a New Tab
-            </label>
+            <input class="form-check-input" type="checkbox" id="closeTab" onkeyup="checkEnter(event)" name = "closeTab" checked>
+            <label class="form-check-label" style = "color: #ffffff;" for="closeTab">Open in a New Tab</label><br>
+            <input class="form-check-input" type="checkbox" id="autofire" onkeyup="checkEnter(event)" name = "autofire" checked>
+            <label class="form-check-label" style = "color: #ffffff;" for="autofire">Auto-Fire</label><br>
+            <input class="form-check-input" type="checkbox" id="reverse" onkeyup="checkEnter(event)" name = "reverse">
+            <label class="form-check-label" style = "color: #ffffff;" for="reverse">Reverse</label>
         </div>
 
         <!-- Footer -->
@@ -50,7 +52,6 @@
         </footer>
 
         <!-- JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src = "script.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

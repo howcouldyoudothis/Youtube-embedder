@@ -1,21 +1,29 @@
-$("#link").keyup(function(event) {
-    if (event.keyCode === 13) {
-        embed();
-    }
-});
+function checkGo(){
+    if (document.getElementById("autofire").checked){
+        embed(true);
 
-$("#closeTab").keyup(function(event) {
-    if (event.keyCode === 13) {
-        embed();
     }
-});
+}
+
+let checkEnter = event => (event.keyCode === 13) ? (embed()) : (checkGo());
 
 let focus_link = () => document.getElementById("link").focus();
 
-function embed(){
+let setProcessing = () => {
     document.getElementById('btn-go').innerHTML = "Processing...";
     document.getElementById('btn-go').disabled = true;
+}
+
+let setGo = () => {
+    document.getElementById('btn-go').innerHTML = "Go";
+    document.getElementById('btn-go').disabled = false;
+}
+
+function embed(check){
     var link = String(document.getElementById("link").value);
+    var closeTab = document.getElementById("closeTab").checked;
+    var reverse = document.getElementById("reverse").checked;
+
     if (link === "corona"){
         window.open("http://redirect.tinu.tech/corona");
     }
@@ -34,16 +42,22 @@ function embed(){
                 video_id = link.split('embed/');
             }
             else{
-                window.alert("Please Enter a Valid Youtube URL!");
-                document.getElementById("link").value = "";
-                document.getElementById('btn-go').innerHTML = "Go";
-                document.getElementById('btn-go').disabled = false;
+                if (!check){
+                    window.alert("Please Enter a Valid Youtube URL!");
+                    document.getElementById("link").value = "";
+                    setGo();
+                }
                 valid = false;
+
             }
+        }
+        else{
+            (video_id[1].length !== 11) ? valid = false : valid = true;
         }
 
         video_id = video_id[1];
         if (valid) {
+            setProcessing();
             try {
                 var ampersandPosition = video_id.indexOf('&');
                 if (ampersandPosition !== -1) {
@@ -54,15 +68,16 @@ function embed(){
             }
 
             var redirect = "http://youtube.com/embed/" + video_id;
-            if (document.getElementById("closeTab").checked) {
-                window.open(redirect);
+            var inverse = "http://youtube.com/watch/?v=" + video_id;
+            if (closeTab) {
+                (reverse) ? (window.open(inverse)) : (window.open(redirect));
                 document.getElementById("link").value = "";
-                document.getElementById('btn-go').innerHTML = "Go";
-                document.getElementById('btn-go').disabled = false;
-                document.getElementById("link").focus();
+                setGo();
+                focus_link();
             }
             else{
-                window.location.href = redirect;
+                (reverse) ? (window.location.href = inverse) : (window.location.href = redirect);
+
             }
         }
     }
