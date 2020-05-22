@@ -1,8 +1,5 @@
 function checkGo(){
-    if (document.getElementById("autofire").checked){
-        embed(true);
-
-    }
+    if (document.getElementById("autofire").checked){embed(true);}
 }
 
 let checkEnter = event => (event.keyCode === 13) ? (embed()) : (checkGo());
@@ -20,6 +17,7 @@ let setGo = () => {
 }
 
 function embed(check){
+    if(!check){setProcessing()}
     var link = String(document.getElementById("link").value);
     var closeTab = document.getElementById("closeTab").checked;
     var reverse = document.getElementById("reverse").checked;
@@ -64,8 +62,7 @@ function embed(check){
                     video_id = video_id.substring(0, ampersandPosition);
                 }
             }
-            catch {
-            }
+            catch {}
 
             var redirect = "http://youtube.com/embed/" + video_id;
             var inverse = "http://youtube.com/watch/?v=" + video_id;
