@@ -1,4 +1,4 @@
-//Function to determine if autofire is on when the link field is changed
+//Function to determine if autofire is on when the link field is changedg
 function checkGo(){
     if (document.getElementById("autofire").checked){embed(true);}
 }
@@ -23,7 +23,9 @@ let setGo = () => {
 
 // Main Function to do the processing
 function embed(check){
-    if(!check){setProcessing()}
+    if(!check){
+        setProcessing();
+    }
     var link = String(document.getElementById("link").value);
     var closeTab = document.getElementById("closeTab").checked;
     var reverse = document.getElementById("reverse").checked;
@@ -34,7 +36,7 @@ function embed(check){
     else if(link === "mobilecorona"){
         window.open("http://redirect.tinu.tech/mobilecorona");
     }
-    else {
+    else{
         var valid = true;
         var video_id = link.split('v=');
 
@@ -52,7 +54,6 @@ function embed(check){
                     setGo();
                 }
                 valid = false;
-
             }
         }
         else{
