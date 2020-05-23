@@ -1,21 +1,27 @@
+//Function to determine if autofire is on when the link field is changed
 function checkGo(){
     if (document.getElementById("autofire").checked){embed(true);}
 }
 
+//ES6 Function to check if pressed enter or other
 let checkEnter = event => (event.keyCode === 13) ? (embed()) : (checkGo());
 
+//ES6 Function to focus on the link field
 let focus_link = () => document.getElementById("link").focus();
 
+//ES6 Function to set the Button to processing... and to disable
 let setProcessing = () => {
     document.getElementById('btn-go').innerHTML = "Processing...";
     document.getElementById('btn-go').disabled = true;
 }
 
+//ES6 Function to set the Button back to defualts
 let setGo = () => {
     document.getElementById('btn-go').innerHTML = "Go";
     document.getElementById('btn-go').disabled = false;
 }
 
+// Main Function to do the processing
 function embed(check){
     if(!check){setProcessing()}
     var link = String(document.getElementById("link").value);
