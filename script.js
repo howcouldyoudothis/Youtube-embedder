@@ -57,7 +57,7 @@ function embed(check){
             }
         }
         else{
-            (video_id[1].length !== 11) ? valid = false : valid = true;
+            (video_id[1].length >= 11) ? valid = true : valid = false;
         }
 
         video_id = video_id[1];
