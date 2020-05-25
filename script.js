@@ -21,6 +21,8 @@ let setGo = () => {
     document.getElementById('btn-go').disabled = false;
 }
 
+let clrLink = () => document.getElementById("link").value = "";
+
 // Main Function to do the processing
 function embed(check){
     if(!check){
@@ -29,12 +31,18 @@ function embed(check){
     var link = String(document.getElementById("link").value);
     var closeTab = document.getElementById("closeTab").checked;
     var reverse = document.getElementById("reverse").checked;
-
-    if (link === "corona"){
+    
+    if (link === "tinu"){
+        window.open("https://tinu.tech");
+        clrLink();
+    }
+    else if (link === "corona"){
         window.open("http://redirect.tinu.tech/corona");
+        clrLink();
     }
     else if(link === "mobilecorona"){
         window.open("http://redirect.tinu.tech/mobilecorona");
+        clrLink();
     }
     else{
         var valid = true;
@@ -50,7 +58,7 @@ function embed(check){
             else{
                 if (!check){
                     window.alert("Please Enter a Valid Youtube URL!");
-                    document.getElementById("link").value = "";
+                    clrLink();
                     setGo();
                 }
                 valid = false;
@@ -75,7 +83,7 @@ function embed(check){
             var inverse = "http://youtube.com/watch/?v=" + video_id;
             if (closeTab) {
                 (reverse) ? (window.open(inverse)) : (window.open(redirect));
-                document.getElementById("link").value = "";
+                clrLink();
                 setGo();
                 focus_link();
             }
