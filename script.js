@@ -15,7 +15,7 @@ let setProcessing = () => {
     document.getElementById('btn-go').disabled = true;
 }
 
-//ES6 Function to set the Button back to defualts
+//ES6 Function to set the Button back to defaults
 let setGo = () => {
     document.getElementById('btn-go').innerHTML = "Go";
     document.getElementById('btn-go').disabled = false;
