@@ -1,7 +1,15 @@
 body{
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
     background:linear-gradient(90deg,#03827b,#c45a21);
+}
+
+@media(max-width: 768px){
+    body{
+        margin-left: 3%;
+        margin-right: 3%;
+        background:linear-gradient(90deg,#03827b,#c45a21);
+    }
 }
 
 .heading{

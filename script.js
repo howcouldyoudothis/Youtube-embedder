@@ -32,6 +32,7 @@ function embed(check){
     var closeTab = document.getElementById("closeTab").checked;
     var reverse = document.getElementById("reverse").checked;
     
+    // Check for predefenied values (Easter Eggs)
     if (link === "tinu"){
         window.open("https://tinu.tech");
         clrLink();
@@ -47,7 +48,8 @@ function embed(check){
     else{
         var valid = true;
         var video_id = link.split('v=');
-
+        
+        // Check if link is not a normal one
         if (link === video_id[0]) {
             if (link.includes('youtu.be')){
                 video_id = link.split('youtu.be/');
@@ -78,7 +80,8 @@ function embed(check){
                 }
             }
             catch {}
-
+            
+            //Prepare Redirect Links
             var redirect = "http://youtube.com/embed/" + video_id;
             var inverse = "http://youtube.com/watch/?v=" + video_id;
             if (closeTab) {
