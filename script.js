@@ -82,7 +82,7 @@ function embed(check){
             catch {}
             
             //Prepare Redirect Links
-            var redirect = "http://youtube.com/embed/" + video_id;
+            var redirect = "http://youtube-nocookie.com/embed/" + video_id;
             var inverse = "http://youtube.com/watch/?v=" + video_id;
             if (closeTab) {
                 (reverse) ? (window.open(inverse)) : (window.open(redirect));
